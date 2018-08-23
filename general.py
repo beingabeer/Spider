@@ -38,12 +38,20 @@ def delete_file_contents(path):
 
 
 
+# Read a file and convert each line to set items
+def file_to_set(file_name):
+    results = set()
+    with open(file_name, 'rt') as f:
+        for line in f:
+            results.add(line.replace('\n', ''))
+    return results
 
 
-
-
-
-
+# Iterate through a set, each item will be a new line in the file
+def set_to_file(links, file):
+    delete_file_contents(file)
+    for link in sorted(links):
+        append_to_file(file, link)
 
 
 
